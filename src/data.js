@@ -1,60 +1,60 @@
 export const projects = [
   {
-    title: "React Reserve",
-    subtitle: "MERN Stack",
+    title: "Automatic smart irrigation system",
+    subtitle: "C++, ThingSpeak IoT Analytics, Arduino Mega",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-    image: "./project-1.gif",
-    link: "https://reactbootcamp.com",
+      "To develop a low cost, IoT based automatic irrigation system to monitor and control the comfort level of field set according to the user / crop needs ",
+    image: "",
+    link: "",
   },
   {
-    title: "React Tracks",
-    subtitle: "React and Python",
+    title: "GSM Backed Taser",
+    subtitle: "C++,  TI MSP430 microcontroller, SIM900 GSM module",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-    image: "./project-2.gif",
-    link: "https://reactbootcamp.com",
+      ": To develop a GSM backed taser for enhancing personal security",
+    image: "",
+    link: "",
   },
   {
-    title: "DevChat",
-    subtitle: "React and Firebase",
+    title: "Blockchain authentication for IoT",
+    subtitle: "Python, Solidity, Ethereum blockchain network",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-    image: "./project-3.gif",
-    link: "https://reactbootcamp.com",
+      "To develop a secure authentication system for IOT devices using Ethereum blockchain.",
+    image: "",
+    link: "",
   },
   {
-    title: "Epic Todo App",
-    subtitle: "React Hooks",
+    title: "Job market analysis",
+    subtitle: "Python, SAS, Tableau",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-    image: "./project-4.gif",
-    link: "https://reactbootcamp.com",
+      "To develop a job posting analysis framework to find the trends in IT jobs in the US",
+    image: "",
+    link: "",
   },
 ];
 
 export const testimonials = [
   {
     quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quod necessitatibus quidem impedit facilis? Distinctio laboriosam veritatis recusandae minus. Voluptatum accusantium hic laudantium soluta ea sapiente cupiditate officia maiores itaque.",
-    image: "https://randomuser.me/api/portraits/men/1.jpg",
-    name: "Jesse Hicks",
-    company: "Zoozle",
+      "I have known Ragunath for quite a few years now. Exploring and being eager to learn new things, adds value to his active and open mindset. He is one of the few people I know who always is up-to-date with technological, business and social aspects. An ideal candidate for critical thinking.",
+    image: "",
+    name: "Pasupathi Subramanian",
+    company: "Allstate India",
   },
   {
     quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quod necessitatibus quidem impedit facilis? Distinctio laboriosam veritatis recusandae minus. Voluptatum accusantium hic laudantium soluta ea sapiente cupiditate officia maiores itaque.",
-    image: "https://randomuser.me/api/portraits/men/94.jpg",
-    name: "Ruben Alvarez",
-    company: "Dooble.io",
+      "Ragunath volunteered as a webmaster in IEEE WIE Ottawa during 2020 under my leadership. He is active, always has new ideas and initiatives. Not only he has helped in creating a new website for IEEE WIE Ottawa, but he also was the main lead of the first hackathon organized by IEEE WIE Ottawa.",
+    image: "",
+    name: "Anastassia Gharib",
+    company: "2021 IEEE WIE Voting Committee Member",
   },
 ];
 
 export const skills = [
-  "JavaScript",
-  "React",
-  "Next.js",
-  "Node",
-  "GraphQL",
-  "Material UI",
+  "C",
+  "C++",
+  "Python",
+  "DevOps",
+  "Data Science",
+  "Networking",
 ];
