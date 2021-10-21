@@ -14,7 +14,7 @@ export default function Contact() {
             marginHeight={0}
             marginWidth={0}
             style={{ filter: "opacity(0.7)" }}
-            src="https://www.google.com/maps/embed/v1/place?q=97+warren+st+new+york+city&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+            src="https://www.google.com/maps/place/Acacia+Ave,+Ottawa,+ON/@45.4497396,-75.6767485,17z/data=!4m5!3m4!1s0x4cce0528be6cea1b:0x512b6cc8087fa150!8m2!3d45.4505939!4d-75.675858"
           />
           <div className="bg-gray-900 relative flex flex-wrap py-6 rounded shadow-md">
             <div className="lg:w-1/2 px-6">
@@ -22,8 +22,8 @@ export default function Contact() {
                 ADDRESS
               </h2>
               <p className="mt-1">
-                97 Warren St. <br />
-                New York, NY 10007
+                Ottawa <br />
+                Ontario, Canada
               </p>
             </div>
             <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
@@ -31,12 +31,14 @@ export default function Contact() {
                 EMAIL
               </h2>
               <a className="text-indigo-400 leading-relaxed">
-                reedbarger@email.com
+                ragunathanbarasu2695@gmail.com
               </a>
               <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
-                PHONE
+                <a className="text-indigo-400 leading-relaxed" href="https://www.linkedin.com/in/ragunathanbarasu/">
+                LinkedIn
+              </a>
               </h2>
-              <p className="leading-relaxed">123-456-7890</p>
+              <p className="leading-relaxed"></p>
             </div>
           </div>
         </div>
@@ -48,8 +50,7 @@ export default function Contact() {
             Hire Me
           </h2>
           <p className="leading-relaxed mb-5">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
-            suscipit officia aspernatur veritatis. Asperiores, aliquid?
+            Please provide me the details below, I will get back to you ASAP!
           </p>
           <div className="relative mb-4">
             <label htmlFor="name" className="leading-7 text-sm text-gray-400">
