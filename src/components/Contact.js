@@ -14,7 +14,7 @@ export default function Contact() {
             marginHeight={0}
             marginWidth={0}
             style={{ filter: "opacity(0.7)" }}
-            src="https://www.google.com/maps/place/Acacia+Ave,+Ottawa,+ON/@45.4497396,-75.6767485,17z/data=!4m5!3m4!1s0x4cce0528be6cea1b:0x512b6cc8087fa150!8m2!3d45.4505939!4d-75.675858"
+            src="https://www.bestottawaproperties.com/files/u396974/new%20edinburghmap.png"
           />
           <div className="bg-gray-900 relative flex flex-wrap py-6 rounded shadow-md">
             <div className="lg:w-1/2 px-6">
