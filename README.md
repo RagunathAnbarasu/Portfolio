@@ -13,6 +13,8 @@ npm run dev
 
 The local site runs at `http://localhost:4321`. All core content, navigation, and contact links work without JavaScript. No runtime profile APIs, analytics, forms, CMS, or resume download are included.
 
+Contact is through LinkedIn only. The site does not publish an email address; GitHub and Credly links provide access to code and credentials.
+
 ## Content maintenance
 
 - Update profile, contact details, the five employment roles, capabilities, and credentials in `src/data/profile.ts`.
