@@ -1,0 +1,29 @@
+---
+import { profile } from '../data/profile';
+const home = Astro.url.pathname === '/';
+const section = (id: string) => `${home ? '' : '/'}#${id}`;
+---
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="/" aria-label={`${profile.name} — home`}><span class="monogram" aria-hidden="true">ra.</span><span>Ragunath Anbarasu</span></a>
+    <nav aria-label="Main navigation">
+      <a href={section('projects')}>Work</a>
+      <a href={section('experience')}>Experience</a>
+      <a href={section('certifications')}>Credentials</a>
+      <a class="nav-contact" href={section('contact')}><span class="desktop-label">Let’s connect</span><span class="mobile-label">Contact</span><span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>
+<style>
+  .site-header { border-bottom: 1px solid var(--border); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 100px; gap: 24px; }
+  .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 650; text-decoration: none; }
+  .monogram { display: grid; place-items: center; width: 43px; height: 43px; background: var(--ink); color: var(--paper); border-radius: 50%; font-family: Georgia, serif; font-size: 25px; font-weight: 400; padding-bottom: 3px; }
+  nav { display: flex; align-items: center; gap: 30px; font-size: 13px; }
+  nav a { text-decoration: none; }
+  nav a:hover { color: var(--accent); }
+  .nav-contact { border: 1px solid var(--ink); padding: 10px 16px; border-radius: 4px; display: flex; gap: 20px; }
+  .mobile-label { display: none; }
+  @media (max-width: 720px) { .header-inner { padding-block: 18px; flex-wrap: wrap; gap: 16px; } nav { flex-wrap: wrap; gap: 20px; width: 100%; } .nav-contact { margin-left: auto; padding: 7px 10px; gap: 8px; } .desktop-label { display: none; } .mobile-label { display: inline; } }
+  @media (max-width: 380px) { nav { gap: 10px; font-size: 12px; } }
+</style>

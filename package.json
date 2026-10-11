@@ -1,29 +1,27 @@
 {
-  "name": "my-portfolio",
-  "version": "0.1.0",
+  "name": "ragunath-portfolio",
+  "version": "1.0.0",
   "private": true,
-  "dependencies": {
-    "@craco/craco": "^5.9.0",
-    "@heroicons/react": "^1.0.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "^1.1.5"
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject"
+    "dev": "astro dev --host 0.0.0.0",
+    "start": "astro dev",
+    "check": "astro check",
+    "build": "astro build",
+    "preview": "astro preview --host 0.0.0.0",
+    "test": "node --test tests/site.test.mjs"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "dependencies": {
+    "@astrojs/sitemap": "3.7.4",
+    "astro": "7.3.8"
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.36",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
+    "@astrojs/check": "0.9.10",
+    "parse5": "8.0.1",
+    "sharp": "0.35.5",
+    "typescript": "6.0.3"
   }
 }
