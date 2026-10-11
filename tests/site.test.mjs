@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile, readdir, access } from 'node:fs/promises';
 import { join } from 'node:path';
 import { parse } from 'parse5';
-import { credentials, experience } from '../src/data/profile.ts';
+import { credentials, experience, profile } from '../src/data/profile.ts';
 
 const origin = 'https://ragunathanbarasu.com';
 const routes = ['/', '/work/kubernetes-automation/', '/work/observability/', '/work/cloud-cost-optimization/', '/work/delivery-automation/'];
@@ -27,6 +27,8 @@ test('every page ships meaningful HTML, unique metadata, and no application Java
     assert.ok(elements.some((node) => attr(node, 'property') === 'og:image' && attr(node, 'content') === `${origin}/images/social-preview.png`), route);
     assert.equal(elements.filter((node) => node.tagName === 'script' && attr(node, 'type') !== 'application/ld+json').length, 0, route);
     assert.equal(elements.filter((node) => node.tagName === 'form' || node.tagName === 'iframe').length, 0, route);
+    assert.ok(!elements.some((node) => attr(node, 'href')?.startsWith('mailto:')), `Unexpected email link on ${route}`);
+    assert.ok(!/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i.test(text(document)), `Unexpected public email address on ${route}`);
     assert.ok(!text(document).includes('$'), `Unexpected public dollar figure on ${route}`);
   }
   assert.equal(titles.size, routes.length);
@@ -58,7 +60,7 @@ test('internal links, anchors, and local images resolve on every page', async ()
   }
 });
 
-test('legacy anchors, five resume roles, and direct contact links remain available', () => {
+test('legacy anchors and five resume roles remain available with LinkedIn-only contact', () => {
   const homepage = documents.get('/');
   const elements = nodes(homepage);
   for (const id of ['about', 'projects', 'skills', 'testimonials', 'contact', 'experience', 'certifications']) assert.ok(elements.some((node) => attr(node, 'id') === id), id);
@@ -67,7 +69,11 @@ test('legacy anchors, five resume roles, and direct contact links remain availab
     assert.ok(text(homepage).includes(`${job.start} – ${job.end}`), job.title);
   }
   assert.equal(elements.filter((node) => attr(node, 'class') === 'job').length, 5);
-  assert.ok(elements.some((node) => attr(node, 'href') === 'mailto:ragunathanbarasu2695@gmail.com'));
+  const contact = elements.find((node) => attr(node, 'id') === 'contact');
+  const contactLinks = nodes(contact).filter((node) => node.tagName === 'a');
+  assert.equal(contactLinks.length, 1);
+  assert.equal(attr(contactLinks[0], 'href'), profile.linkedin);
+  assert.ok(text(contactLinks[0]).includes('Connect on LinkedIn'));
 });
 
 test('certifications link to earned badges and preserve date-only issue and expiry values', () => {

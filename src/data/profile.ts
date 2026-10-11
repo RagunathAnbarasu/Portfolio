@@ -2,7 +2,6 @@ export const profile = {
   name: 'Ragunath Anbarasu',
   title: 'Senior DevOps Developer',
   location: 'Ottawa, Ontario, Canada',
-  email: 'ragunathanbarasu2695@gmail.com',
   linkedin: 'https://www.linkedin.com/in/ragunathanbarasu/',
   github: 'https://github.com/RagunathAnbarasu',
   credly: 'https://www.credly.com/users/ragunath-anbarasu',
