@@ -1,0 +1,47 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Arrow from '../../components/Arrow.astro';
+export async function getStaticPaths() {
+  return (await getCollection('work')).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+interface Props { entry: CollectionEntry<'work'>; }
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const otherWork = (await getCollection('work')).filter((work) => work.id !== entry.id).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title={`${entry.data.title} | Ragunath Anbarasu`} description={entry.data.description}>
+  <article class="shell work-page">
+    <a class="text-link back-link" href="/#projects"><span aria-hidden="true">←</span> All selected work</a>
+    <header class="work-header"><p class="eyebrow">Selected impact / {entry.data.category}</p><h1>{entry.data.title}</h1><p class="work-lead">{entry.data.description}</p><ul class="tags" aria-label="Technologies">{entry.data.technologies.map((technology) => <li>{technology}</li>)}</ul></header>
+    <div class="work-body"><aside class="work-facts" aria-label="Work context and outcomes"><dl><div><dt>Organization</dt><dd>{entry.data.employer}</dd></div><div><dt>Role</dt><dd>{entry.data.role}</dd></div><div><dt>Period</dt><dd>{entry.data.period}</dd></div></dl><div class="result-list">{entry.data.metrics.map((metric) => <div><strong>{metric.value}</strong><span>{metric.label}</span></div>)}</div></aside><div class="prose"><Content /></div></div>
+    <section class="other-work" aria-labelledby="other-work-title"><p class="eyebrow">Keep exploring</p><h2 id="other-work-title">More selected work</h2><div>{otherWork.map((work) => <a href={`/work/${work.id}/`}><span>{work.data.title}</span><Arrow /></a>)}</div></section>
+    <div class="work-contact"><p>Interested in working together?</p><a class="text-link" href="/#contact">Let’s connect <Arrow /></a></div>
+  </article>
+</Base>
+<style>
+  .work-page { padding-block: 45px 60px; }
+  .back-link { color: var(--muted); }
+  .work-header { max-width: 850px; margin-block: 55px 50px; }
+  h1 { font-size: clamp(2.8rem, 5.7vw, 4.9rem); line-height: 1.07; letter-spacing: -.045em; margin: 20px 0 25px; }
+  .work-lead { font-size: 18px; color: var(--muted); max-width: 690px; margin-bottom: 28px; }
+  .work-body { border-top: 1px solid var(--border); padding-top: 45px; display: grid; grid-template-columns: 260px 1fr; gap: 80px; }
+  .work-facts dl { margin: 0; } .work-facts dl > div { margin-bottom: 25px; }
+  dt { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 9px; }
+  dd { font-size: 14px; margin: 0; line-height: 1.7; }
+  .result-list { border-top: 1px solid var(--border); padding-top: 24px; margin-top: 30px; }
+  .result-list > div { margin-bottom: 25px; } .result-list strong { display: block; font-family: Georgia, serif; font-size: 48px; font-weight: 400; color: var(--accent); letter-spacing: -.04em; } .result-list span { display: block; font-size: 12px; color: var(--muted); }
+  .prose { max-width: 670px; }
+  .prose :global(h2) { font-family: var(--sans); font-size: 23px; font-weight: 550; letter-spacing: -.02em; margin: 0 0 17px; }
+  .prose :global(h2:not(:first-child)) { margin-top: 38px; }
+  .prose :global(p) { font-size: 16px; line-height: 1.9; color: var(--muted); margin: 0 0 20px; }
+  .other-work { border-top: 1px solid var(--border); margin-top: 70px; padding-top: 40px; }
+  .other-work h2 { font-size: 36px; margin-bottom: 30px; }
+  .other-work > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .other-work a { display: flex; align-items: center; gap: 22px; justify-content: space-between; border: 1px solid var(--border); padding: 22px; text-decoration: none; font-size: 14px; line-height: 1.6; border-radius: 4px; }
+  .other-work a:hover { border-color: var(--accent); } .other-work svg { flex-shrink: 0; }
+  .work-contact { display: flex; align-items: center; gap: 24px; margin-top: 40px; font-size: 13px; }
+  @media (max-width: 850px) { .work-body { grid-template-columns: 220px 1fr; gap: 35px; } .other-work > div { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .work-header { margin-top: 40px; } .work-lead { font-size: 16px; } .work-body { grid-template-columns: 1fr; gap: 30px; } .work-facts dl { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; } .work-facts dl > div { margin: 0; } .result-list { display: flex; gap: 30px; } .result-list > div { margin: 0; } .prose :global(p) { font-size: 15px; } }
+</style>

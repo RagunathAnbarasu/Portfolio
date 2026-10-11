@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7f7f0"/>
+  <rect x="835" width="365" height="630" fill="#e5ece3"/>
+  <g fill="none" stroke="#bdcdbd"><circle cx="1200" cy="135" r="250"/><circle cx="1200" cy="135" r="190"/></g>
+  <circle cx="75" cy="72" r="28" fill="#223a33"/>
+  <text x="55" y="85" font-family="Georgia,serif" font-size="32" fill="#f7f7f0">ra.</text>
+  <g fill="#223a33"><text x="125" y="82" font-family="sans-serif" font-size="24">Ragunath Anbarasu</text>
+  <text x="55" y="188" font-family="sans-serif" font-size="18" letter-spacing="3">PLATFORM ENGINEERING · CLOUD NATIVE</text>
+  <text x="50" y="310" font-family="Georgia,serif" font-size="88">Senior DevOps</text></g>
+  <text x="50" y="408" font-family="Georgia,serif" font-style="italic" font-size="88" fill="#1a6152">Developer.</text>
+  <text x="55" y="485" font-family="sans-serif" font-size="24" fill="#53635b">Cloud platforms. Reliable delivery. Clearer signals.</text>
+  <path d="M55 542H780" stroke="#d5dcd1"/>
+  <text x="55" y="582" font-family="sans-serif" font-size="20" fill="#223a33">ragunathanbarasu.com</text>
+  <g fill="#223a33" font-family="Georgia,serif" font-size="47"><text x="870" y="298">Build.</text><text x="870" y="395">Ship.</text><text x="870" y="492">Observe.</text></g>
+  <g stroke="#bdcdbd"><path d="M870 330H1150M870 427H1150M870 524H1150"/></g>
+</svg>
